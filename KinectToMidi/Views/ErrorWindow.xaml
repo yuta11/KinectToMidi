@@ -1,0 +1,11 @@
+﻿<Window x:Class="KinectToMidi.Views.ErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:KinectToMidi.Properties"
+        Title="Kinect to Midi" Height="480" Width="640"
+        Background="{DynamicResource WindowBackgroundBrush}" Icon="/KinectToMidi;component/Images/1393393591_100023.ico">
+    <DockPanel Margin="6">
+        <TextBlock DockPanel.Dock="Top" Text="{x:Static properties:Resources.ErrorOccuredColon}"/>
+        <TextBox x:Name="m_txtError" IsReadOnly="True" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch"/>
+    </DockPanel>
+</Window>

@@ -1,0 +1,78 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ViewModels="clr-namespace:KinectToMidi.ViewModels" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="KinectToMidi.Views.JointToCoordinateControl" 
+             mc:Ignorable="d" 
+    xmlns:properties="clr-namespace:KinectToMidi.Properties"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <!--<UserControl.DataContext>
+        <ViewModels:SkeletonPointToCubeViewModel/>
+    </UserControl.DataContext>-->
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.JointColon}"/>
+                <ComboBox Grid.Column="1" Text="test" ItemsSource="{Binding AllJoints}" SelectedIndex="{Binding JointIndex}"/>
+
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.XColon}"/>
+                <xctk:DecimalUpDown Grid.Column="1" Value="{Binding X}" Height="20" VerticalAlignment="Top"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.YColon}"/>
+                <xctk:DecimalUpDown Grid.Column="1" Value="{Binding Y}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.ZColon}"/>
+                <xctk:DecimalUpDown Grid.Column="1" Value="{Binding Z}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.HeightColon}"/>
+                <xctk:DecimalUpDown Grid.Column="1" Value="{Binding Height}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.WidthColon}"/>
+                <xctk:DecimalUpDown Grid.Column="1" Value="{Binding Width}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.LengthColon}"/>
+                <xctk:DecimalUpDown Grid.Column="1" Value="{Binding Length}"/>
+            </Grid>
+            <Button HorizontalAlignment="Right" ToolTip="{x:Static properties:Resources.Delete}"
+                    Command="{Binding RemoveCommand}">
+                <Image Height="24" Source="/KinectToMidi;component/Images/Hopstarter-Sleek-Xp-Basic-Close-2.ico" Stretch="Fill" Width="24"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

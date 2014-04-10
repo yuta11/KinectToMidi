@@ -1,0 +1,118 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:KinectToMidi.ViewModels"
+             xmlns:controls="clr-namespace:KinectToMidi.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+                xmlns:helpers="clr-namespace:KinectToMidi.Helpers"
+             x:Class="KinectToMidi.Views.ConditionsBlocControl" 
+             xmlns:properties="clr-namespace:KinectToMidi.Properties"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600"
+             d:DataContext="{Binding Path=Main.BlocksSetVM.ConditionsBlocks, Source={StaticResource ViewModelLocatorDataSource}}"    >
+    <UserControl.Resources>
+        <Thickness x:Key="ConditionItemMargin">0,0,0,3</Thickness>
+        <DataTemplate DataType="{x:Type vm:SkeletonPointToCubeViewModel}">
+            <Grid Margin="{DynamicResource ConditionItemMargin}">
+                <xctk:DropDownButton Content="{Binding Text, Mode=OneWay}">
+                    <xctk:DropDownButton.DropDownContent>
+                        <controls:JointToCoordinateControl Width="200"/>
+                    </xctk:DropDownButton.DropDownContent>
+                </xctk:DropDownButton>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SkeletonPointToSkeletonPointViewModel}">
+            <Grid Margin="{DynamicResource ConditionItemMargin}">
+                <xctk:DropDownButton Content="{Binding Text, Mode=OneWay}">
+                    <xctk:DropDownButton.DropDownContent>
+                        <controls:SkeletonPointToSkeletonPointControl Width="200"/>
+                    </xctk:DropDownButton.DropDownContent>
+                </xctk:DropDownButton>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:MidiCCViewModel}">
+            <Grid Margin="{DynamicResource ConditionItemMargin}">
+                <xctk:DropDownButton Content="{Binding Text, Mode=OneWay}">
+                    <xctk:DropDownButton.DropDownContent>
+                        <controls:MidiCCControl Width="200"/>
+                    </xctk:DropDownButton.DropDownContent>
+                </xctk:DropDownButton>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MidiNoteViewModel}">
+            <Grid Margin="{DynamicResource ConditionItemMargin}">
+                <xctk:DropDownButton Content="{Binding Text, Mode=OneWay}">
+                    <xctk:DropDownButton.DropDownContent>
+                        <controls:MidiNoteControl Width="200"/>
+                    </xctk:DropDownButton.DropDownContent>
+                </xctk:DropDownButton>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <TextBox Text="{Binding Name}" FontWeight="Bold"/>
+        <Grid Background="{Binding SelectedColor, ElementName=colorPicker, NotifyOnSourceUpdated=True}" Margin="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Margin="5,0, 5, 5">
+                <TextBlock Text="{x:Static properties:Resources.ConditionsColon}"/>
+                <ItemsControl ItemsSource="{Binding}" VerticalAlignment="Top" DataContext="{Binding Conditions}" Padding="0,0,0, 5"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="m_cbxConditionsTypes" Grid.Column="0" 
+                              ItemsSource="{Binding AllConditionTypes}" 
+                              SelectedValue="{Binding SelectedConditionType}" ItemTemplate="{DynamicResource ListItemDataTemplate}"/>
+                    <Button Grid.Column="1" VerticalAlignment="Top" 
+                            Command="{Binding AddConditionCommand}" 
+                            CommandParameter="{Binding SelectedValue, ElementName=m_cbxConditionsTypes}" ToolTip="Add">
+                        <Image Height="20" Source="/KinectToMidi;component/Images/Awicons-Vista-Artistic-Add.ico" Stretch="Fill" Width="20"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="5, 0, 5, 5">
+                <TextBlock Text="{x:Static properties:Resources.MidiColon}"/>
+                <ItemsControl Grid.Column="1" ItemsSource="{Binding}" VerticalAlignment="Top" DataContext="{Binding MidiSignals}" Padding="0,0,0, 5"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="m_cbxMidiTypes" Grid.Column="0" ItemsSource="{Binding AllMidiSignalTypes}" SelectedValue="{Binding SelectedMidiSignalType}" ItemTemplate="{DynamicResource ListItemDataTemplate}"/>
+                    <Button x:Name="m_btnAddMidi" Grid.Column="1" VerticalAlignment="Top" 
+                            Command="{Binding AddMidiCommand}" 
+                            CommandParameter="{Binding SelectedValue, ElementName=m_cbxMidiTypes}" ToolTip="Add">
+                        <Image Height="20" Source="/KinectToMidi;component/Images/Awicons-Vista-Artistic-Add.ico" Stretch="Fill" Width="20"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <!--<xctk:ColorPicker Name="colorPicker" Grid.Row="2" VerticalAlignment="Top" Height="30" DisplayColorAndName="True" ShowAdvancedButton="False" SelectedColor="{Binding ConditionColor}"/>-->
+            <Grid Grid.Column="1" Grid.Row="2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Content="{x:Static properties:Resources.Enabled}" Grid.Column="0" Width="70" Height="20" IsChecked="{Binding Enabled}"/>
+                <Button x:Name="m_btnDelete" Grid.Column="1" 
+                        Command="{Binding RemoveCommand}" 
+                        ToolTip="{x:Static properties:Resources.Delete}"
+                        >
+                    <Image Height="24" Source="/KinectToMidi;component/Images/Hopstarter-Sleek-Xp-Basic-Close-2.ico" Stretch="Fill" Width="24"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </StackPanel>
+</UserControl>

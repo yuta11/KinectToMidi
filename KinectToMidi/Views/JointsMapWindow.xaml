@@ -1,0 +1,9 @@
+﻿<Window x:Class="KinectToMidi.Views.JointsMapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kinect to Midi" Height="320" Width="320"
+        Background="{DynamicResource WindowBackgroundBrush}" Icon="/KinectToMidi;component/Images/1393393591_100023.ico">
+    <Grid Margin="6">
+        <Image Source="pack://siteoforigin:,,,/Images/skeleton.png"/>
+    </Grid>
+</Window>

@@ -1,0 +1,90 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:Toolkit="clr-namespace:Microsoft.Kinect.Toolkit;assembly=Microsoft.Kinect.Toolkit"
+        xmlns:kt="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers" 
+        xmlns:ViewModels="clr-namespace:KinectToMidi.ViewModels" 
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+        x:Name="window" x:Class="KinectToMidi.Views.VideoWindow" 
+        Title="Kinect output" Height="480" Width="640" Icon="/KinectToMidi;component/Images/1393393591_100023.ico"
+        Background="{DynamicResource WindowBackgroundBrush}">
+    <Window.Resources>
+    	<kt:KinectSensorManager x:Key="sensorManager" KinectSensor="{Binding KinectSensorChooser.Kinect, ElementName=SensorChooserUI, Mode=OneWay}" SkeletonStreamEnabled="True" SkeletonTrackingMode="Default"/>
+    </Window.Resources>
+	<Grid x:Name="grid1">
+		<i:Interaction.Triggers>
+			<ei:KeyTrigger Key="Return">
+				<ei:GoToStateAction StateName="FullScreenState"/>
+			</ei:KeyTrigger>
+			<ei:KeyTrigger Key="Esc">
+				<ei:GoToStateAction StateName="NormalState"/>
+			</ei:KeyTrigger>
+		</i:Interaction.Triggers>
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="SizeStatesGroup">
+				<VisualState x:Name="FullScreenState">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Window.WindowStyle)" Storyboard.TargetName="window">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static WindowStyle.None}"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Window.WindowState)" Storyboard.TargetName="window">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static WindowState.Maximized}"/>
+						</ObjectAnimationUsingKeyFrames>
+						<BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(Window.Topmost)" Storyboard.TargetName="window">
+							<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+						</BooleanAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+				<VisualState x:Name="NormalState">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Window.WindowStyle)" Storyboard.TargetName="window">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<WindowStyle>SingleBorderWindow</WindowStyle>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Window.WindowState)" Storyboard.TargetName="window">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<WindowState>Normal</WindowState>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(Window.Topmost)" Storyboard.TargetName="window">
+							<DiscreteBooleanKeyFrame KeyTime="0"/>
+						</BooleanAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Toolkit:KinectSensorChooserUI Grid.Row="0" x:Name="SensorChooserUI" IsListening="True" VerticalAlignment="Top" Height="30" Margin="261,0,257.4,0" KinectSensorChooser="{Binding Main.SensorChooser, Source={StaticResource ViewModelLocatorDataSource}}"/>
+		<Grid x:Name="grid" Grid.Column="0">
+			<Viewbox x:Name="viewbox" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<!-- Make the depthViewer and skeletonViewer overlap entirely. -->
+				<Grid>
+					<kt:KinectDepthViewer 
+						x:Name="DepthViewer"
+						KinectSensorManager="{Binding Mode=OneWay, Source={StaticResource sensorManager}}"
+						DepthTreatment="{Binding DepthTreatment}"
+						CollectFrameRate="True" 
+						RetainImageOnSensorChange="True"/>
+					<Canvas x:Name="canvas">
+						<kt:KinectSkeletonViewer 
+							KinectSensorManager="{Binding Mode=OneWay, Source={StaticResource sensorManager}}"
+							Width="{Binding ActualWidth, ElementName=DepthViewer}"
+							Height="{Binding ActualHeight, ElementName=DepthViewer}"
+							ShowBones="true" ShowJoints="true" ShowCenter="true" ImageType="Depth" />
+						<Image x:Name="m_img"
+							Width="{Binding ActualWidth, ElementName=DepthViewer}"
+							Height="{Binding ActualHeight, ElementName=DepthViewer}"
+                               />
+					</Canvas>
+				</Grid>
+			</Viewbox>
+		</Grid>
+	</Grid>
+</Window>

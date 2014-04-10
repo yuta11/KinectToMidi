@@ -1,0 +1,734 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="Chrome">
+    
+    
+    
+    
+
+    
+    <head>
+        <meta id="CompatabilityMode" http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="http://download-codeplex.sec.s-msft.com/css/v20602/i2036743/StyleSheet.ashx" id="MasterCss" rel="stylesheet" type="text/css" />
+        <link rel="SHORTCUT ICON" href="http://www.codeplex.com/favicon.ico" />
+        <title>Fast Lightweight Expression Evaluator - Home</title>
+        
+        <!--
+        Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code,
+        not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx.
+        -->
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.6/jquery-ui.min.js" type="text/javascript"></script>
+        
+        
+    <style type="text/css">.SideBar, .SideBarPadding{display:none;}.MainContent{width:auto;}.SiteContentTable{width:100%;}</style>
+    <style id="ProjectStyles" type="text/css">
+        .SiteHeader, .SiteHeaderLeft {
+            height:45px !important;
+            overflow:hidden;
+        }
+        .SiteContent 
+        {
+            padding: 0 0 1em 0;
+            margin-top:0;
+            min-height:225px;
+            border-right: 1px solid lightgrey;
+            border-left: 1px solid lightgrey;
+            border-bottom: 1px solid lightgrey;
+        }
+        .IE table.MinWidthContent
+        {
+	        table-layout: auto !important;	
+        }
+    </style>
+    
+    
+    <style type="text/css">.ProjectContent{padding:0;}</style>
+    <style type="text/css">
+        .WikiHolder
+        {
+            margin: 0 1em 0 0;
+        }
+        #WikiContent
+        {
+            margin-top: 15px;
+        }
+        #WikiBreadCrumbs
+        {
+            margin: 0.25em 0 1em 0;
+        }
+        .SecondarySearchButton 
+        {
+            margin:0 0 0 -0.6em;
+        }
+        .FF .SecondarySearchButton 
+        {
+            margin:-0.1em 0 0 -0.5em;
+            height: 22px;
+        }
+        .IE .SecondarySearchButton
+        {
+            width: 22px;
+            height: 22px;
+        }
+    </style>
+    
+    
+    
+    
+    <meta id="WTProjectName" name="WT.pi" content="CRE"/>
+    
+
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href='http://flee.codeplex.com/rsd' />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" title="WLWManifest" href='/wlwmanifest.xml' />
+    
+    
+        <link rel="alternate" type="application/rss+xml" title="Fast&#32;Lightweight&#32;Expression&#32;Evaluator" url="http://flee.codeplex.com/project/feeds/rss"/>
+    
+        
+        <link rel="alternate" type="application/rss+xml" title="Fast&#32;Lightweight&#32;Expression&#32;Evaluator&#32;-&#32;Discussions" url="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2fforum%2fflee"/>
+        
+        <link rel="alternate" type="application/rss+xml" title="Fast&#32;Lightweight&#32;Expression&#32;Evaluator&#32;-&#32;Issues" url="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2fworkitem%2fflee"/>
+        
+        <link rel="alternate" type="application/rss+xml" title="Fast&#32;Lightweight&#32;Expression&#32;Evaluator&#32;-&#32;Downloads" url="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2frelease%2fflee"/>
+        <link rel="alternate" type="application/rss+xml" title="Fast&#32;Lightweight&#32;Expression&#32;Evaluator&#32;-&#32;Reviews" url="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2freview%2fflee"/>
+        
+    
+        <link rel="alternate" type="application/rss+xml" title="Fast&#32;Lightweight&#32;Expression&#32;Evaluator&#32;-&#32;Source&#32;code" url="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2fsourcecontrol%2fflee"/>
+        <link rel="alternate" type="application/rss+xml" title="Fast&#32;Lightweight&#32;Expression&#32;Evaluator&#32;-&#32;Wiki" url="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2fwiki%2fflee"/>
+    
+        
+    
+        <meta content="summary" name="twitter:card"></meta><meta content="@CodePlex" name="twitter:site"></meta><meta content="http://flee.codeplex.com/wikipage?title=LanguageReference&amp;referringTitle=Home&amp;ProjectName=flee" name="twitter:url"></meta><meta content="Fast Lightweight Expression Evaluator" name="twitter:title"></meta><meta content="A .NET expression parser and evaluator that uses a custom compiler and lightweight codegen to ensure that expression evaluation is fast and efficient.&amp;#10;" name="twitter:description"></meta><meta content="http://www.codeplex.com/favicon.ico" name="twitter:image"></meta>
+    
+
+    </head>
+    
+    <body>
+        <script src="http://download-codeplex.sec.s-msft.com/scripts/v20602/i7/ScriptLoader.ashx" type="text/javascript"></script>
+        <form id="aspnetForm" autocomplete="off" method="POST" enctype="multipart/form-data">
+            <input name="__RequestVerificationToken" type="hidden" value="-Nn9djC3cq1rOXAZqsfImoQtag29MIp4aNFryrUHRkZFwWfl7S8Y7gpl7xFD56-p0plHXK8PkUKlz5cnCQqkFEyUAOrCYxHjYLIoIk5oslPV0nI_UPwEiGyr-ZkXPWffJEUZ7g2" />
+            
+            <div id="UpdateProgressPanel" class="loading_animation" style="display:none;">
+                <div class="row">
+                    <h2 class="anim_h2">
+                        <span id="UpdateProgressText">Updating...</span>
+                        <span id="animatedLoadingIconContainer">
+                            <img id="animatedLoadingIcon" src="http://download-codeplex.sec.s-msft.com/Images/v20602/loading_animation.gif" class="anim_img"/>
+                        </span>
+                    </h2>
+                </div>
+            </div>
+            
+            <div style="display:none;">
+                
+                    <script type="text/javascript">
+                        $loadScript("https://siterecruit.comscore.com/sr/codeplex/broker.js");
+                    </script>
+
+                
+                
+                <img id="BlankImage" style="width:0;height:0;" src="http://download-codeplex.sec.s-msft.com/Images/v20602/blank.png" onload="self.logoImageLoaded=true;"/>
+
+                <script language="javascript" type="text/javascript">
+                    var date = new Date();
+                    var timezoneOffset = date.getTimezoneOffset() / 60 * -1;
+                    var timezoneOffsetCookie = getCookie("TimezoneOffset");
+                    var firstTimeSetTimezoneCookie = false;
+
+                    if (timezoneOffsetCookie == null || timezoneOffsetCookie != timezoneOffset) {
+                        firstTimeSetTimezoneCookie = true;
+                        document.cookie = "TimezoneOffset=" + timezoneOffset + '; domain=.codeplex.com;expires=Пт, 11 июл 2014 02:43:16 UTC';
+                    }
+                </script>
+                
+                
+                    <noscript>
+                        <a href="http://www.omniture.com" title="Web Analytics"><img src="http://msstonojstemp.112.2O7.net/b/ss/msstonojstemp/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" /></a>
+                    </noscript>
+                
+            </div>
+            
+            <div id="header">
+                <div id="header_wrap" class="row">
+                    <p id="logo"><a href="http://www.codeplex.com">Code<span class="semi">Plex</span></a><span id="tagline">Project Hosting for Open Source Software</span></p>
+                    
+
+<ul id="nav">
+
+    <li><a href="/site/register/new" id="registerLink" class="ZoomFix">Register</a></li>
+    <li ><a class="SignInLink" href="https://www.codeplex.com/site/login?RedirectUrl=http%3a%2f%2fflee.codeplex.com%2fwikipage%3ftitle%3dLanguageReference%26referringTitle%3dHome" id="signInLink">Sign In</a></li>
+  
+    <li class="last"><a class="rss_site_icon" href="http://www.codeplex.com/site/feeds/rss" type="application/rss+xml" rel="Alternate" title="CodePlex Site Activity"></a></li>
+</ul>
+                    <input id="searchsite" name="searchsite" maxlength="500" type="text" value="" /><span id="search_mag"><a id="submitSearch" name="submitSearch" class="magnify" title="Search" href="#"></a></span>
+                    <script>
+	$(document).ready(function() {
+    var searchButton = $('#submitSearch'),
+        searchBar = $('#searchsite');
+
+    // Register our own handler for the search event while we wait for the SearchBox script to load.
+    searchButton.bind('click.backupSearchBox', doProjectSearch);
+    searchBar.bind('keypress.backupSearchBox', function(e) { if ($keyCode(e) === 13) { doProjectSearch(); return false; } });
+
+    function cleanupSearchEvents() {
+        // If the SearchBox was loaded, unregister our handlers.
+        if (epx_loaded) {
+            searchButton.unbind('.backupSearchBox');
+            searchBar.unbind('.backupSearchBox');
+        }
+    }
+
+    $loadScript('http://i4.services.social.microsoft.com/search/Widgets/SearchBox.jss?appid=1000&scopeid=1&boxId=searchsite&btnId=submitSearch&watermark=Search%20all%20projects&overrideWatermark=true&searchLocation=%2fsite%2fsearch&allowEmptySearch=true&focusOnInit=False&minimumTermLength=3', cleanupSearchEvents);
+})
+function doProjectSearch() {
+    
+    var url = '/site/search';
+
+    //If search term is not same as watermark
+    if($('#searchsite').val() != 'Search all projects')    
+    {        
+        url = url + '?query=' + encodeURIComponent($('#searchsite').val());
+    }
+
+    
+    var callback = '';
+    if (callback.length > 0 && eval('typeof ' + callback) != 'undefined')
+        url += eval(callback + '()');
+
+    window.location.href = url;
+    return false;
+}
+</script>
+                </div>
+            </div>
+            
+            <div id="wrap">
+                
+    <div id="sub_heading" class="row">
+        
+        <div id="ProjectHeader">
+            <div id="project_title_row" class="row">
+                <div id="project_logo">
+                    
+    
+    <h1 class="text_only"><a href="http://flee.codeplex.com/" id="ProjectTitle1"><div>Fast Lightweight Expression Evaluator</div></a></h1>
+
+                </div>
+            </div>
+        </div>
+        
+        <div id="ProjectDetailsDiv">
+            
+        </div>
+		<div class="clear"></div>
+        
+
+<ul id="page_box_links">
+	<li id="homeTabCell" style="width: 63px;"><a id="homeTab" href="http://flee.codeplex.com/" class="home_active">home</a><div></div></li>
+    
+	<li id="sourceTabCell" style="width:113px;"><a id="sourceTab" href="http://flee.codeplex.com/SourceControl/latest" class="box_source">source code</a><div></div></li>
+    
+	<li id="releasesTabCell" style="width:105px;"><a id="releasesTab" href="http://flee.codeplex.com/releases/view/28952" class="box_downloads">downloads</a><div></div></li>
+    
+    <li id="documentationTabCell" style="width:143px;"><a id="documentationTab" href="http://flee.codeplex.com/documentation" class="box_documentation">documentation</a><div></div></li>
+    
+	<li id="discussionTabCell" style="width:112px;"><a id="discussionTab" href="http://flee.codeplex.com/discussions" class="box_discussions">discussions</a><div></div></li>
+    
+	<li id="workItemsTabCell" style="width:70px;"><a id="workItemsTab" href="http://flee.codeplex.com/workitem/list/basic" class="box_issue">issues</a><div></div></li>
+    
+	<li id="peopleTabCell" style="width:70px;"><a id="peopleTab" href="http://flee.codeplex.com/team/view" class="box_people">people</a><div></div></li>
+	<li id="licenseTabCell" style="width:70px;"><a id="licenseTab" href="http://flee.codeplex.com/license" class="box_license">license</a><div></div></li>
+    
+    <span class="stretch"></span>
+</ul>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#page_box_links').applyLastClassToList();
+    });
+</script>
+		    <div class="clear"></div>
+            
+    <div id="DeleteWikiPagePanel" class="modal" style="display: none;">
+        <div class="row">
+            <h2>Are you Sure? <a href="javascript:return false;" class="close">X</a></h2>
+        </div>
+        <div class="modal_info">
+            By clicking Delete, all history, comments and attachments for this page will be deleted and cannot be restored.
+            <div class="modal_buttons">
+                <input type="button" id="CancelButton" class="cancel" value="Cancel" />
+                <input type="button" id="DeleteButton" class="ok" value="Delete" />
+            </div>
+            <div class="ClearBoth"></div>
+        </div>
+    </div>
+    
+    <div id="homepage_sub_menu">
+		<ul class="page_box_sublinks">
+            
+                <li><a id="pageInfoHyperLink" href="http://flee.codeplex.com/wiki/PageInfo?title=LanguageReference" title="Page information for LanguageReference page.">Page Info</a></li>
+            
+            <li class="last"><a id="changesHyperlink" href="http://flee.codeplex.com/wikipage/history" title="View change history for all pages.">Change History (all pages)</a></li>
+		</ul>
+        
+
+<div>
+    
+    <div id="actionBar" class="action_bar">
+        <ul id="actionBar_ul" class="actionBar_sublinks subtab_right" style="vertical-align: middle;">
+
+            
+
+                <li id="li_actionbar_followproject" data-action-id="actionbar_followproject" data-action-type="None" class="actionBar_sublinks" data-options-id="89c80526-c719-40a1-9f0c-4fad2f38cb8a">
+                
+                    <script class="options" defer="defer" id="89c80526-c719-40a1-9f0c-4fad2f38cb8a" type="application/json">{"projectName":"flee","loggedInUser":"","returnUrl":"https://www.codeplex.com/site/login?RedirectUrl=http%3a%2f%2fflee.codeplex.com%2fwikipage%3ftitle%3dLanguageReference%26referringTitle%3dHome%26ProjectName%3dflee"}</script> 
+                    
+                    <div class="actionBar_custom_content"></div>
+
+                    <a href="#" id="actionbar_followproject" title="" class="action_bar_item_link">
+                        <img id="img_actionbar_followproject" class="action_bar_item_image" src="http://download-codeplex.sec.s-msft.com/Images/v20602/actionbar_follow.png" style="vertical-align: middle" />
+                        
+                    </a>
+
+                </li>
+
+            
+
+                <li id="li_actionbar_subscribe" data-action-id="actionbar_subscribe" data-action-type="PopUp" class="actionBar_sublinks" data-options-id="525944ee-14de-4cd1-a3a1-a39dd31e484b">
+                
+                    <script class="options" defer="defer" id="525944ee-14de-4cd1-a3a1-a39dd31e484b" type="application/json">{}</script> 
+                    
+                    <div class="actionBar_custom_content">
+
+<div id="rssHoverDiv" class="HoverPanel LeftHoverWidth" style="display: none">
+        <ul id="3_FeedsPanel" class="RssFeedsPanel">
+            <li>
+                <a id="ProjectRssLink" href="http://flee.codeplex.com/project/feeds/rss" class="ArrowSmall NoUnderline">All Project Updates</a>
+            </li>
+            
+            <li>
+                <a id="DiscussionRssLink" href="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2fforum%2fflee" class="ArrowSmall NoUnderline">Discussions</a>
+            </li>
+            
+            <li>
+                <a id="IssueTrackerRssLink" href="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2fworkitem%2fflee" class="ArrowSmall NoUnderline">Issue Tracker</a>
+            </li>
+            
+            <li>
+                <a id="ReleasesRssLink" href="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2frelease%2fflee" class="ArrowSmall NoUnderline">Downloads</a>
+            </li>
+            <li>
+                <a id="ReviewsRssLink" href="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2freview%2fflee" class="ArrowSmall NoUnderline">Reviews</a>
+            </li>
+            
+            <li>
+                <a id="SourceControlRssLink" href="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2fsourcecontrol%2fflee" class="ArrowSmall NoUnderline">Source Code</a>
+            </li>
+            <li>
+                <a id="WikiRssLink" href="http://flee.codeplex.com/project/feeds/rss?ProjectRSSFeed=codeplex%3a%2f%2fwiki%2fflee" class="ArrowSmall NoUnderline">Wiki &amp; Documentation</a>
+            </li>
+        </ul>
+</div></div>
+
+                    <a href="#" id="actionbar_subscribe" title="Subscribe to project updates in RSS feeds." class="action_bar_item_link">
+                        <img id="img_actionbar_subscribe" class="action_bar_item_image" src="http://download-codeplex.sec.s-msft.com/Images/v20602/actionbar_subscribe.png" style="vertical-align: middle" />
+                        Subscribe
+                    </a>
+
+                </li>
+
+            
+        </ul>
+    </div>
+</div>
+        <div class="clear"></div>
+    </div>
+    
+        
+
+    </div>
+    
+    
+    
+<div id="left_column" class="no_border">
+    
+        <p id="breadcrumbs" style="margin-left: 10px">
+            
+                <a href="http://flee.codeplex.com/">Home</a>
+                
+                    <img src="http://download-codeplex.sec.s-msft.com/Images/v20602/arrow_sm.gif" alt="Go" style="margin-top: 5px" />
+                
+                <a href="http://flee.codeplex.com/wikipage?title=LanguageReference">LanguageReference</a>
+                
+        </p>
+    
+
+    <div class="WikiHolder">
+
+        
+            <div id="WikiContent" class="WikiContent">
+                <div class="wikidoc"><b>Language Reference</b><br /><br />The expression language that Flee uses is a mix of elements of C# and VB.Net. Since the aim of this library is speed, the language is strongly typed (same rules as C#) and there is no late binding. Unlike C#, the language is <b>not</b> case-sensitive.<br /><br /><b>Contents</b>
+<ul><li><a href="#ArithmeticOperators">ArithmeticOperators</a></li>
+<li><a href="#ComparisonOperators">ComparisonOperators</a></li>
+<li><a href="#AndOrXorNotOperators">AndOrXorNotOperators</a></li>
+<li><a href="#ShiftOperators">ShiftOperators</a></li>
+<li><a href="#Concatenation">Concatenation</a></li>
+<li><a href="#Indexing">Indexing</a></li>
+<li><a href="#Literals">Literals</a></li>
+<li><a href="#Casting">Casting</a></li>
+<li><a href="#ConditionalOperator">ConditionalOperator</a></li>
+<li><a href="#InOperator">InOperator</a></li>
+<li><a href="#OverloadedOperatorsOnTypes">Overloaded Operators On Types</a></li></ul>
+<br /><b>Arithmetic Operators</b><a name="ArithmeticOperators"></a><br />Flee supports all the standard arithmetic operators as well as the modulo (%) and power (^) operators.<br />Example: <span class="codeInline">a*2 + b ^ 2 - 100 % 5</span><br /><br /><b>ComparisonOperators</b><a name="ComparisonOperators"></a><br />All the comparison operators are supported as well.  The not equal operator is <span class="codeInline">&lt;&gt;</span> and the equal operator is <span class="codeInline">=</span><br />Example: <span class="codeInline">a &lt;&gt; 100</span><br /><br /><b>And/Or/Xor/Not Operators</b><a name="AndOrXorNotOperators"></a><br />Flee uses these operators for both logical and bitwise operations.  Since the expression language is strongly-typed, Flee can determine the types of the operands to these operators.  If both operands are booleans, then the operation is logical.  If both are integral, the operation is bitwise.  Any other combination results in a compile error.<br />Example (logical): <span class="codeInline">a &gt; 100 And Not b = 100</span><br />Example (bitwise): <span class="codeInline">(100 or 2) and 1</span><br /><br /><b>Shift Operators</b><a name="ShiftOperators"></a><br />The left (&lt;&lt;) and right (&gt;&gt;) shift operators do a bitwise shift and are only valid on integral types.<br />Example: <span class="codeInline">100 &gt;&gt; 2</span><br /><br /><b>Concatenation</b><a name="Concatenation"></a><br />The + operator also serves as the string concatenation operator.  If either of its operands is a string, it will perform a concatenate instead of an addition.  It is valid for only one operand to be a string in which case, both operands are converted to Object and formatted accordingly.<br />Example: <span class="codeInline">&quot;abc&quot; + &quot;def&quot;</span><br />Example: <span class="codeInline">&quot;the number is: &quot; + 100</span><br /><br /><b>Indexing</b><a name="Indexing"></a><br />The indexing operator takes the form: <span class="codeInline">member[indexExpression]</span>.  Any expression can appear inside the brackets.  If the member being indexed is an array, Flee will emit optimized array element loading instructions.  If the indexed member has a default indexer property, flee will call the property with the evaluated index.  Indexing a type which is not an array and does not have a default indexer generates a compile exception.<br />Example: <span class="codeInline">arr[i + 1] + 100</span><br /><br /><b>Literals</b><a name="Literals"></a><br />Flee supports the following literals in expressions:
+<ul><li><b>Char</b> - A character in single quotes: <span class="codeInline">&#39;a&#39;</span></li>
+<li><b>Boolean</b> - Either <span class="codeInline">true</span> or <span class="codeInline">false</span></li>
+<li><b>Real</b> - Any number with a decimal point.  You can use the &#39;d&#39;, &#39;f&#39;, or &#39;m&#39; suffixes to specify whether the number should be stored in a double, single, or decimal respectively.  Use the ExpressionOptions.RealLiteralDataType option to specify the data type used to store the number when no suffix is specified.  The default is double.</li>
+<li><b>Integral</b> - Any number without a decimal point.  Append &quot;L&quot; to force the number to a 64-bit integer and/or a &quot;U&quot; to force it to unsigned.  Flee will try to assign an integer literal to the first integral type that can contain the value.</li>
+<li><b>Hex</b> - Integral constants can also be specified in hex notation: <span class="codeInline">0xFF12</span></li>
+<li><b>String</b> - String literals are enclosed in double quotes and escaping characters follows the same rules as C#: <span class="codeInline">&quot;string\u0021\r\n a \&quot;new\&quot; line&quot;</span></li>
+<li><b>Null</b> - Using the keyword <span class="codeInline">null</span> will load the null reference into an expression.</li>
+<li><b>DateTime</b> - A valid .NET DateTime pattern surrounded by #&#39;s.  Use the <span class="codeInline">ExpressionOptions.DateTimeFormat</span> property to control the format.  Example:  <span class="codeInline">#08/06/2008#.ToLongDateString()</span></li>
+<li><b>TimeSpan</b> - A string in the format <span class="codeInline">##[d.]hh:mm[:ss[.ff]]#</span>.  Example: <span class="codeInline">#08/06/2008# + ##1.23:45#</span></li></ul>
+<br /><b>Casting</b><a name="Casting"></a><br />Casting is performed using the special cast function which takes the form <span class="codeInline">cast(value, type)</span>.<br />Example: <span class="codeInline">100 + cast(obj, int)</span><br /><br /><b>Conditional Operator</b><a name="ConditionalOperator"></a><br />Flee supports a conditional operator that allows you to pick a result based on a boolean condition.  It is implemented as a special function of the form <span class="codeInline">if(condition, whenTrue, whenFalse)</span>.  The operator is a &quot;true&quot; conditional operator: only the expression that matches the condition is evaluated.<br />Example: <span class="codeInline">If(a &gt; 100 and b &gt; 10, &quot;both greater&quot;, &quot;less&quot;)</span><br /><br /><b>In Operator</b><a name="InOperator"></a><br />The In operator is a boolean binary operator that returns true if its first operand is contained in its second operand.  It has two forms
+<ul><li><b>List</b>: Searches a list of values for a given value: <span class="codeInline">value IN (value1, value2, value3,...)</span>.  The value is compared against each value in the list and <span class="codeInline">true</span> is returned if the value is found, <span class="codeInline">false</span> if no match is found.</li>
+<li><b>Collection</b>: Searches a single collection for a given value: <span class="codeInline">value IN collection</span>.  The collection variable must implement <span class="codeInline">ICollection&lt;T&gt;</span>, <span class="codeInline">IDictionary&lt;K,V&gt;</span>, <span class="codeInline">IList</span>, or <span class="codeInline">IDictionary</span> for the expression to compile.  Arrays can be searched with this operator as they implement the first interface.</li></ul>
+<br />Example (List): <span class="codeInline">If(100 in (100, 200, 300, -1), &quot;in&quot;, &quot;not in&quot;)</span><br />Example (Collection): <span class="codeInline">if(100 in collection, &quot;in&quot;, &quot;not in&quot;)</span><br /><br /><b>Overloaded Operators On Types</b><a name="OverloadedOperatorsOnTypes"></a><br />When evaluating an arithmetic, comparison, or conversion operation where the operands are not primitives, Flee will look for and use any overloaded operators defined on the operands.  This means that you can create expressions such as <span class="codeInline">a + b</span> (where a and b are custom types), as long as there is an addition operator defined on either operand.</div><div class="ClearBoth"></div>
+            </div>
+        
+                <p>Last edited <span class="smartDate" title="18.06.2009 20:34:21" LocalTimeTicks="1245382461">Jun 18, 2009 at 8:34 PM</span> by <a id="wikiEditByLink" href="http://www.codeplex.com/site/users/view/ECiloci">ECiloci</a>, version 30</p>
+            
+                <div id="Comments">
+                    
+
+<script type="text/javascript">
+    var commentCount = 6;
+    function addComment() {
+        var input = $('#Comment');
+        input.val($.trim(input.val()));
+        if (MvcValidation_Validate('AddComment')) {
+            CodePlex.UpdateProgress.show();
+            $.post('http://flee.codeplex.com/wikipage/comment', { Comment: input.val(), title: $('#WikiTitle').val() }, function(data, textStatus) {
+                if (textStatus == 'success') {
+                    if(commentCount++ == 0)
+                        $('#wikiCommentsEmpty').empty();
+                    $('#wikiComments').append(data);
+                    input.val('');
+                }
+                CodePlex.UpdateProgress.hide();
+            });
+        }
+    }
+    function deleteComment(id) {
+        if (confirm('Are you sure you want to delete this comment?')) {
+            CodePlex.UpdateProgress.show();
+            $.ajax({
+                type: 'DELETE',
+                url: 'http://flee.codeplex.com/wikipage/comment' + '/' + id,
+                success: function() {
+                    $('#comment' + id).empty();
+                    CodePlex.UpdateProgress.hide();
+                },
+                error: function() { CodePlex.UpdateProgress.hide(); }
+            });
+        }
+    }
+</script>
+
+<div id="CommentsAnchor">
+    <h2>Comments</h2>
+    <div id="wikiComments">
+        
+
+<div id="comment25994">
+    <div class="SubText">
+        <a name="C25994" />
+        <a href="http://www.codeplex.com/site/users/view/aph31" >aph31</a>
+        <span class="smartDate" title="21.12.2012 11:58:28" LocalTimeTicks="1356119908">Dec 21, 2012 at 11:58 AM</span>&nbsp;
+        
+    </div>
+    Hi, is there possible for me to write a multiline expression&#63;<br />Example&#58;<br />This is vb format<br />If a &#62; 0 then<br />  If a &#60;&#61; 1 then<br />     X &#61; b &#42; &#40; a &#42; 1.5 &#41;<br />  else<br />     X &#61; &#40; 1.5 &#43; &#40; a - 1 &#41; &#42; 2 &#41; &#42; b<br />  end if<br />else<br />  X &#61; 0<br />End if<br /><br />If y &#61; 1 then <br />  X &#61; X &#42; 2<br />End if <br /><br />How to write this into expression without using custom function. because i write the formula in texbox, and it is impossible for me to write them to custom function.<p></p>
+</div>
+
+<div id="comment23878">
+    <div class="SubText">
+        <a name="C23878" />
+        <a href="http://www.codeplex.com/site/users/view/tiger2009" >tiger2009</a>
+        <span class="smartDate" title="30.05.2012 9:02:13" LocalTimeTicks="1338393733">May 30, 2012 at 9:02 AM</span>&nbsp;
+        
+    </div>
+    This is very useful project , thanks.I don&#39;t know how to implement a switch,case structure with it. eg&#58; <br />switch&#40;number&#41;<br />&#123;<br />    case 0&#58;<br />         number&#42;3&#59;<br />    case 1&#58;<br />        return 5<br />    case 2&#58;<br />        return number&#42;2<br />     <br />&#125;<br /><br />Can we do it with flee if statements&#63; Please help me.<p></p>
+</div>
+
+<div id="comment18660">
+    <div class="SubText">
+        <a name="C18660" />
+        <a href="http://www.codeplex.com/site/users/view/rocarnet" >rocarnet</a>
+        <span class="smartDate" title="23.02.2011 0:45:28" LocalTimeTicks="1298450728">Feb 23, 2011 at 12:45 AM</span>&nbsp;
+        
+    </div>
+    I am woking with your dll and I&#39;m trying to evaluate the following expression, but it fails to compile&#58;if&#40;5 in &#40;1 , 5&#41; and 9 in &#40;3 , 6 , 4&#41; and 15 in &#40;7 , 8&#41; and 24 in &#40;8 , 8&#41; and 31 in &#40;3, 3&#41;  ,&#34;True&#34;,&#34;False&#34;&#41;<br />The problem is because the expression length. May you give some clue about it, in order to fix the problem.<p></p>
+</div>
+
+<div id="comment2800">
+    <div class="SubText">
+        <a name="C2800" />
+        <a href="http://www.codeplex.com/site/users/view/ECiloci" >ECiloci</a>
+        <span class="smartDate" title="07.08.2007 2:16:08" LocalTimeTicks="1186478168">Aug 7, 2007 at 2:16 AM</span>&nbsp;
+        
+    </div>
+    Update&#58; strings now use C&#35; style escapes.  So you can type &#34;this is a &#92;&#34;quoted&#92;&#34; string&#34;<p></p>
+</div>
+
+<div id="comment2786">
+    <div class="SubText">
+        <a name="C2786" />
+        <a href="http://www.codeplex.com/site/users/view/ECiloci" >ECiloci</a>
+        <span class="smartDate" title="06.08.2007 4:40:38" LocalTimeTicks="1186400438">Aug 6, 2007 at 4:40 AM</span>&nbsp;
+        
+    </div>
+    Sorry for the late reply, I thought codeplex would email me when a comment was posted.  I guess not &#58;&#41;.<br /><br />&#62;Have you done any optimisations for constant folding and algebraic simplification&#63;<br />No, the only optimization is the short-circuited and&#47;or operations<br /><br />&#62;Also, does the gramma handle nested strings&#63;<br />Yes, use &#34;&#34; to escape a double quote&#58; &#34;this is a &#34;&#34;quoted&#34;&#34; string&#34;<p></p>
+</div>
+
+<div id="comment2743">
+    <div class="SubText">
+        <a name="C2743" />
+        <a href="http://www.codeplex.com/site/users/view/wmpjohnston" >wmpjohnston</a>
+        <span class="smartDate" title="01.08.2007 10:12:47" LocalTimeTicks="1185988367">Aug 1, 2007 at 10:12 AM</span>&nbsp;
+        
+    </div>
+    This is great&#33; I&#39;ve been thinking about doing something similar with MPLEX and MPPG. I have a few questions though. Have you done any optimisations for constant folding and algebraic simplification&#63; Also, does the gramma handle nested strings&#63;<p></p>
+</div>
+    </div>
+    
+        <div id="addComment">
+            <a id="SignInToAddCommentLink" href="https://www.codeplex.com/site/login?RedirectUrl=http%3a%2f%2fflee.codeplex.com%2fwikipage%3ftitle%3dLanguageReference%26FocusElement%3dComment">Sign in to add a comment</a>
+        </div>
+    
+</div>
+                </div>
+            
+    </div>
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#deleteWikiHyperLink').click(function () {
+                OpenDialog('#DeleteWikiPagePanel', true, '30em');
+            });
+            $('#DeleteButton').click(function () {
+                OpenDialog('#DeleteWikiPagePanel', false);
+                CodePlex.UpdateProgress.show();
+                $.ajax({
+                    type: 'DELETE',
+                    url: 'http://flee.codeplex.com/wikipage?title=LanguageReference',
+                    data: {title: $('#WikiTitle').val()},
+                    success: function (data) {
+                        CodePlex.UpdateProgress.hide();
+                        window.location = data;
+                    },
+                    error: function (data) {
+                        CodePlex.UpdateProgress.hide();
+                    }
+                });
+            });
+            $('#CancelButton').click(function () {
+                OpenDialog('#DeleteWikiPagePanel', false);
+            });
+            
+            
+        });
+    </script>
+</div>
+
+        
+	<div id="right_sidebar">
+        
+
+<input name="" type="text" maxlength="500" id="wiki_search" title="Search Wiki and Documentation"/><a id="SearchButton" class="wiki_magnify" href="#" title="Search Wiki and Documentation"></a>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('#wiki_search').keypress(function (e) {
+            if (e.keyCode == 13) {
+                wikiSearch();
+                return false;
+            }
+        });
+
+        $('#SearchButton').click(function () {
+            wikiSearch();
+            return false;
+        });
+
+        $('#wiki_search').promptBox('Search Wiki & Documentation');
+
+    });
+    function setWikiCommentTextBoxFocus() {
+        $('#Comment').focus();
+        return false;
+    }
+
+    function wikiSearch() {
+        var $textbox = $('#wiki_search');
+        if($textbox.attr('dirty') != 'true')
+            return;
+        var searchText = encodeURIComponent(jQuery.trim($textbox.val()));
+        if(searchText != null & searchText.length > 0)
+            window.location.href = 'http://flee.codeplex.com/wiki/search?tab=Home&SearchText=' + searchText;
+    }
+
+</script>
+                <a id="download_button"
+                    href="#"
+                    d:postUrl="http://flee.codeplex.com/releases/captureDownload"
+                    d:fileid="72132"
+                    d:clickoncepath=""
+                    onclick="return $.release.fn.downloadFile(this);">
+                    download
+                </a>
+                
+<div id="ClickOnceOperaPanel" class="modal" style="display: none;">
+    <div class="row">
+        <h2>Opera does not support ClickOnce <a href="javascript:return false;" class="close">X</a></h2>
+    </div>
+    <div class="modal_info">
+        <div class="Body">
+            To install this application, save it and then open it.  Opening it directly from Opera will not work correctly.
+        </div>
+        <div class="modal_buttons">
+            <input type="button" class="ok" onclick="operaContinue();" value="Ok" />
+        </div>    
+        <div class="ClearBoth"></div>
+    </div>
+</div>
+	<div id="current_rating">
+        <table>
+            <tr>
+    			<th><span class="rating_header">current</span></th>
+    			<td>
+                    Flee-0.9.26.0
+    			</td>
+            </tr>
+            <tr>
+    			<th><span class="rating_header">date</span></th>
+    			<td><span class="smartDate full" title="17.06.2009 11:00:00" LocalTimeTicks="1245261600">Wed Jun 17, 2009 at 11:00 AM</span></td>
+            </tr>
+            <tr>
+    			<th><span class="rating_header">status</span></th>
+    			<td>Stable</td>
+            </tr>
+            <tr>
+    			<th><span class="rating_header">downloads</span></th>
+    			<td>15 316</td>
+            </tr>
+            <tr>
+    			<th><span class="rating_header">rating</span></th>
+                <td>
+                    <span id="releaseRatingContainer" class="RatingStarContainer" title="4,7 star rating"><span id="releaseRating_Star_0" class="RatingStar FilledRatingStar" d:rating="1" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="releaseRating_Star_1" class="RatingStar FilledRatingStar" d:rating="2" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="releaseRating_Star_2" class="RatingStar FilledRatingStar" d:rating="3" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="releaseRating_Star_3" class="RatingStar FilledRatingStar" d:rating="4" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="releaseRating_Star_4" class="RatingStar HalfRatingStar" d:rating="5" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="releaseratingName"></span><input id="releasecurrentRating" type="hidden" value="4,714286" /></span>
+                    <span class="right">
+                        14 ratings
+                    </span>
+                    <br />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+	<div id="recent_reviews">
+	    <h2>recent reviews</h2>
+        
+            <p class="review"><span id="RatingContainer" class="RatingStarContainer" title="5 star rating"><span id="Rating_Star_0" class="RatingStar FilledRatingStar" d:rating="1" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="Rating_Star_1" class="RatingStar FilledRatingStar" d:rating="2" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="Rating_Star_2" class="RatingStar FilledRatingStar" d:rating="3" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="Rating_Star_3" class="RatingStar FilledRatingStar" d:rating="4" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="Rating_Star_4" class="RatingStar FilledRatingStar" d:rating="5" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="ratingName"></span><input id="currentRating" type="hidden" value="5" /></span>Flexible and easy to use, highly recommended.</p>
+        
+            <p class="review"><span id="RatingContainer" class="RatingStarContainer" title="5 star rating"><span id="Rating_Star_0" class="RatingStar FilledRatingStar" d:rating="1" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="Rating_Star_1" class="RatingStar FilledRatingStar" d:rating="2" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="Rating_Star_2" class="RatingStar FilledRatingStar" d:rating="3" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="Rating_Star_3" class="RatingStar FilledRatingStar" d:rating="4" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="Rating_Star_4" class="RatingStar FilledRatingStar" d:rating="5" onclick="MvcValidation_ClearErrors('Rating');">&nbsp;</span><span id="ratingName"></span><input id="currentRating" type="hidden" value="5" /></span>Brilliant library. No problems encountered whatsoever.</p>
+        
+        <a id="view_all_reviews" href="http://flee.codeplex.com/releases/view/28952#ReviewsAnchor">View all reviews</a>
+        <div class="clear"></div>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#PageActivity .Link').click(function () {
+                var val = $(this).attr('d:value');
+                $.post('http://flee.codeplex.com/stats/getActivity',
+                    { period: val },
+                    function (data) {
+                        $('#PageActivity span').hide();
+                        $('#PageActivity .Link').show();
+                        $('#Page' + val + 'Label').show();
+                        $('#Page' + val + 'Link').hide();
+                        $('#pageViews').text(data.PageViews);
+                        $('#visits').text(data.Visits);
+                        $('#downloads').text(data.Downloads);
+                    }, 'json');
+                return false;
+            });
+        });
+</script>
+<div id="activity">
+	<h2>activity</h2>
+
+	<div class="clear"></div>
+
+    <table>
+	    <tr>
+            <th class="t_heading">page views</th>
+            <th class="t_heading">visits</th>
+            <th class="t_heading">downloads</th>
+	    </tr>
+		<tr>
+			<td><span id="pageViews">2143</span></td>
+			<td><span id="visits">453</span></td>
+			<td><span id="downloads">135</span></td>
+		</tr>
+    </table>
+
+	<ul id="PageActivity"> 
+		<li>Days: </li>
+		<li>
+		    <span id="Page7Label">7</span>
+            <a id="Page7Link" href="#" class="Link" style="display:none;" d:value="7">7</a>
+		</li>
+		<li>
+		    <span id="Page30Label" style="display:none;">30</span>
+            <a id="Page30Link" href="#" class="Link" d:value="30">30</a>
+		</li>
+		<li>
+		    <span id="Page-1Label" style="display:none;">All</span>
+            <a id="Page-1Link" href="#" class="Link" d:value="-1">All</a>
+		</li>
+        <li id="activity_details"><a href="http://flee.codeplex.com/stats">Details</a></li>
+	</ul>
+
+</div>
+
+    </div>
+
+        
+                
+                <div class="clear"></div>
+                
+                <div id="footer">
+                    <div class="row">
+                        <hr />
+                        <ul>
+                            <li>© 2006-2013 Microsoft</li>
+                            <li><a href="http://www.codeplex.com/site/help">Get Help</a></li>
+                            <li><a href="/site/legal/privacy">Privacy Statement</a></li>
+                            <li><a href="http://www.codeplex.com/site/legal/terms">Terms of Use</a></li>
+                            <li><a href="http://www.codeplex.com/site/legal/conduct">Code of Conduct</a></li>
+                            <li><a href="http://www.lakequincy.com" target="_blank">Advertise With Us</a></li>
+                            <li>Version 6.28.2013.20602</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+
+</html>
