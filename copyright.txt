@@ -1,0 +1,4 @@
+Copyright 2012-2013 Yury Tolstoguzov
+https://kinecttomidi.codeplex.com/
+
+Licensed under the terms of the Microsoft Public License (Ms-PL)
