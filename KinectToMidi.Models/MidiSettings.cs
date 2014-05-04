@@ -84,7 +84,6 @@ namespace KinectToMidi.Models
         /// </summary>
         public void SendCC(byte CC, byte min, byte max, byte channel)
         {
-            byte Max = max;
             m_MidiInstrument.SendControllerChange(channel, CC, ref max, min);
         }
         #endregion public methodsregion public methods

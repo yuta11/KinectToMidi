@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectToMidi", "KinectToMid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectToMidi.Models", "KinectToMidi.Models\KinectToMidi.Models.csproj", "{4D5B3902-9341-4E57-A955-6F52CF55E882}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectToMidi.Models.Tests", "KinectToMidi.Models.Tests\KinectToMidi.Models.Tests.csproj", "{FEE88131-101C-499A-89B6-34F726CC7E17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4D5B3902-9341-4E57-A955-6F52CF55E882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D5B3902-9341-4E57-A955-6F52CF55E882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D5B3902-9341-4E57-A955-6F52CF55E882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE88131-101C-499A-89B6-34F726CC7E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE88131-101C-499A-89B6-34F726CC7E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE88131-101C-499A-89B6-34F726CC7E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE88131-101C-499A-89B6-34F726CC7E17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -41,7 +41,7 @@ namespace KinectToMidi.Models
         public Sphere Sphere { get; set; }
         #endregion preperties
 
-        #region relay commands
+        #region public methods
         /// <summary>
         /// Compare the point coordinates against the sphere around another point
         /// </summary>
@@ -55,6 +55,6 @@ namespace KinectToMidi.Models
                 p1.Y > p2.Y + Sphere.CenterPoint.Y - Sphere.Radius && p1.Y < p2.Y + Sphere.CenterPoint.Y + Sphere.Radius &&
                 p1.Z > p2.Z + Sphere.CenterPoint.Z - Sphere.Radius && p1.Z < p2.Z + Sphere.CenterPoint.Z + Sphere.Radius;
         }
-        #endregion relay commands
+        #endregion public methods
     }
 }

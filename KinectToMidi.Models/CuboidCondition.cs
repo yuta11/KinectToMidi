@@ -31,7 +31,7 @@ namespace KinectToMidi.Models
         /// Cuboid singleton
         /// </summary>
         [DataMember]
-        public Cuboid Cuboid;
+        public Cuboid Cuboid { get; set; }
         #endregion preperties
 
         #region public methods

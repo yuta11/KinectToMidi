@@ -95,7 +95,7 @@ namespace KinectToMidi.ViewModels
             {
                 conditionsBlock = new ConditionsBlock();
                 m_blocksSet.ConditionsBlocks.Add(conditionsBlock);
-                name = conditionsBlock.Name + ConditionsBlocks.Count.ToString();
+                name = conditionsBlock.Name + ConditionsBlocks.Count;
             }
 
             var condBlockVM = new ConditionsBlockViewModel(conditionsBlock);

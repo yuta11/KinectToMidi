@@ -53,6 +53,7 @@ namespace KinectToMidi.Models
             }
             catch
             {
+                //handle read exeption
             }
 
             return blocksSet;

@@ -17,7 +17,6 @@ namespace KinectToMidi.Models
         /// <summary>
         /// Evaluates epression and returns calculated value
         /// </summary>
-        /// <param name="sp"></param>
         public byte GetValue(float x, float y, float z, string expressionStr, byte defaultValue)
         {
             byte value = defaultValue;
@@ -54,8 +53,6 @@ namespace KinectToMidi.Models
         /// <summary>
         /// Initialize dynamic expression
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="eDynamic"></param>
         /// <param name="expression"></param>
         public void InitDynamicExpression(string expression)
         {

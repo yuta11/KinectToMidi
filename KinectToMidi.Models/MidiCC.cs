@@ -36,11 +36,20 @@ namespace KinectToMidi.Models
         [DataMember]
         public byte CC { get; set; }
 
+        private string m_MinString;
         /// <summary>
         /// Minimum MIDI CC value expression string
         /// </summary>
         [DataMember]
-        public string MinString { get; set; }
+        public string MinString {
+            get { return m_MinString; }
+            set
+            {
+                m_MinString = value;
+                if(m_expressionMin != null)
+                    m_expressionMin.InitDynamicExpression(m_MinString);
+            }
+        }
 
         /// <summary>
         /// Minimum MIDI CC value
@@ -48,11 +57,20 @@ namespace KinectToMidi.Models
         [DataMember]
         public byte Min { get; set; }
 
+        private string m_MaxString;
         /// <summary>
         /// Maximum MIDI CC value expression string
         /// </summary>
         [DataMember]
-        public string MaxString { get; set; }
+        public string MaxString {
+            get { return m_MaxString; }
+            set
+            {
+                m_MaxString = value;
+                if(m_expressionMax != null)
+                    m_expressionMax.InitDynamicExpression(MaxString);
+            } 
+        }
 
         /// <summary>
         /// Maximum MIDI CC value
@@ -80,9 +98,6 @@ namespace KinectToMidi.Models
         public override void Send(Skeleton skeleton)
         {
             var sp = skeleton.Joints[Joint].Position;
-
-            m_expressionMin.InitDynamicExpression(MinString);
-            m_expressionMax.InitDynamicExpression(MaxString);
 
             Min = m_expressionMin.GetValue(sp.X, sp.Y, sp.Z, MinString, Min);
             Max = m_expressionMax.GetValue(sp.X, sp.Y, sp.Z, MaxString, Max);
