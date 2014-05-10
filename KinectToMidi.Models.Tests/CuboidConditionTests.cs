@@ -18,32 +18,22 @@ namespace KinectToMidi.Models.Tests
 
             CuboidCondition cuboidCondition = new CuboidCondition()
             {
-                Cuboid = new Cuboid
-                {
-                    Height = 1,
-                    Length = 1,
-                    Width = 1,
-                    Point = new Point3D() { X = -0.5F, Y = -0.5F, Z = -0.5F }
-                }
+                Cuboid = Helper.MakeCuboidAroundZero(),
+                JointIndex = Helper.GetRightHandIndex()
             };
 
             Assert.AreEqual(true, cuboidCondition.CheckCondition(skeleton));
         }
 
         [Test()]
-        public void CheckCondition_RightHandOutOfCuboid_ReturnsTrue()
+        public void CheckCondition_RightHandOutOfCuboid_ReturnsFalse()
         {
             var skeleton = new Skeleton();
 
             var cuboidCondition = new CuboidCondition()
             {
-                Cuboid = new Cuboid
-                {
-                    Height = 1,
-                    Length = 1,
-                    Width = 1,
-                    Point = new Point3D() { X = 0.5F, Y = 0.5F, Z = 0.5F }
-                }
+                Cuboid = Helper.MakeCuboidWithNoZero(),
+               JointIndex = Helper.GetRightHandIndex()
             };
 
             Assert.AreEqual(false, cuboidCondition.CheckCondition(skeleton));

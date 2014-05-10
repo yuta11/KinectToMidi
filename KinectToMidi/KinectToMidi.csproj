@@ -135,6 +135,7 @@
     <Compile Include="Helpers\LocalizedDescriptionAttribute.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelEnums.cs" />
+    <Compile Include="ViewModels\WarningHelper.cs" />
     <Compile Include="Views\ConditionsBlocControl.xaml.cs">
       <DependentUpon>ConditionsBlocControl.xaml</DependentUpon>
     </Compile>

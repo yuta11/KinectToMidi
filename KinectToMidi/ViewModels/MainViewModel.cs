@@ -20,6 +20,7 @@ namespace KinectToMidi.ViewModels
     {
         private KinectSensorChooser m_sensorChooser;
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MainViewModel()
         {
             #region ralay command initialization
@@ -263,10 +264,10 @@ namespace KinectToMidi.ViewModels
             {
                 var blocksSet = SerializationTools.ReadObject(fileName);
                 if (blocksSet == null)
-                    ViewModelLocator.ShowWarning(Resources.WarningMessage_CannotLoadProject);
+                    WarningHelper.ShowWarning(Resources.WarningMessage_CannotLoadProject);
                 else
                 {
-                    ViewModelLocator.HideWarning();
+                    WarningHelper.HideWarning();
                     var blocksSetVM = new ConditionsMappingSetViewModel(blocksSet);
                     BlocksSetVM = blocksSetVM;
                 }

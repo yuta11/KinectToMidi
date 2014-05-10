@@ -20,12 +20,11 @@ namespace KinectToMidi.Models
         /// <param name="fileName">full file path to save</param>
         public static void WriteObject(string fileName, BlocksSet blocksSet)
         {
-            using (FileStream writer = new FileStream(fileName, FileMode.Create))
+            using (var writer = new FileStream(fileName, FileMode.Create))
             {
-                DataContractSerializer ser =
+                var ser =
                     new DataContractSerializer(typeof(BlocksSet));
                 ser.WriteObject(writer, blocksSet);
-                writer.Close();
             }
         }
 
@@ -38,17 +37,15 @@ namespace KinectToMidi.Models
             BlocksSet blocksSet = null;
             try
             {
-                using (FileStream fs = new FileStream(fileName, FileMode.Open))
+                using (var fs = new FileStream(fileName, FileMode.Open))
                 {
                     XmlDictionaryReader reader =
                         XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-                    DataContractSerializer ser = new DataContractSerializer(typeof(BlocksSet));
+                    var ser = new DataContractSerializer(typeof(BlocksSet));
 
                     // Deserialize the data and read it from the instance.
                     blocksSet =
                         (BlocksSet)ser.ReadObject(reader, true);
-                    reader.Close();
-                    fs.Close();
                 }
             }
             catch

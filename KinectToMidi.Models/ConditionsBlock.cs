@@ -54,8 +54,7 @@ namespace KinectToMidi.Models
         /// <summary>
         /// Check if the skeleton current state corresponds to the block of conditions and midi event types then send these midi signals
         /// </summary>
-        /// <returns>true if skeleton coordinates correspond block of conditions</returns>
-        public bool HandleConditions(Skeleton skeleton)
+        public void HandleConditions(Skeleton skeleton)
         {
             //check conditions
             bool isin = Conditions.FirstOrDefault(c => !c.CheckCondition(skeleton)) == null;
@@ -63,22 +62,15 @@ namespace KinectToMidi.Models
             //check midi signal event type and send the signal
             foreach (BaseMidiSignal midiSignal in MidiSignals)
             {
-                if (isin && !m_CurrentStateIsIn && midiSignal.SignalEventType == SignalEventTypes.In)
-                {
-                    midiSignal.Send(skeleton);
-                }
-                else if (isin && m_CurrentStateIsIn && midiSignal.SignalEventType == SignalEventTypes.Over)
-                {
-                    midiSignal.Send(skeleton);
-                }
-                else if (!isin && m_CurrentStateIsIn && midiSignal.SignalEventType == SignalEventTypes.Out)
+                if ((isin && !m_CurrentStateIsIn && midiSignal.SignalEventType == SignalEventTypes.In)
+                    || (isin && m_CurrentStateIsIn && midiSignal.SignalEventType == SignalEventTypes.Over)
+                    || (!isin && m_CurrentStateIsIn && midiSignal.SignalEventType == SignalEventTypes.Out))
                 {
                     midiSignal.Send(skeleton);
                 }
             }
 
             m_CurrentStateIsIn = isin;
-            return isin;
         }
         #endregion public methods
     }

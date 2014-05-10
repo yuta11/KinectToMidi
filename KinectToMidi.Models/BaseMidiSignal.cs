@@ -27,7 +27,7 @@ namespace KinectToMidi.Models
         public SignalEventTypes SignalEventType { get; set; }
 
         /// <summary>
-        /// Send MIDI CC signal with using skeleton coordinations and math expressions
+        /// Send MIDI signal with using skeleton coordinations and math expressions
         /// </summary>
         public abstract void Send(Skeleton skeleton);
     }

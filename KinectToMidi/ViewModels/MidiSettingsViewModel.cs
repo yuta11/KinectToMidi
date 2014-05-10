@@ -16,6 +16,7 @@ namespace KinectToMidi.ViewModels
     /// </summary>
     public class MidiSettingsViewModel: ViewModelBase
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MidiSettingsViewModel()
         {
             if (!GalaSoft.MvvmLight.ViewModelBase.IsInDesignModeStatic)
@@ -51,9 +52,9 @@ namespace KinectToMidi.ViewModels
                     MidiSettings.MidiSettingsInstance.ClosePort();
 
                     if (MidiSettings.MidiSettingsInstance.OpenPort(value))
-                        ViewModelLocator.HideWarning();
+                        WarningHelper.HideWarning();
                     else
-                        ViewModelLocator.ShowWarning(Properties.Resources.MidiErrorText);
+                        WarningHelper.ShowWarning(Properties.Resources.MidiErrorText);
                 }
                 RaisePropertyChanged("CurrentOutDeviceName");
             }

@@ -10,7 +10,7 @@ namespace KinectToMidi.Models
     /// <summary>
     /// Working with midi devices
     /// </summary>
-    public class MidiSettings
+    public sealed class MidiSettings: IDisposable
     {
         private MIDIWrapper.Instrument m_MidiInstrument;
 
@@ -86,6 +86,14 @@ namespace KinectToMidi.Models
         {
             m_MidiInstrument.SendControllerChange(channel, CC, ref max, min);
         }
-        #endregion public methodsregion public methods
+        #endregion public methods
+
+        #region IDisposable
+        public void Dispose()
+        {
+            ((IDisposable) m_MidiInstrument).Dispose();
+        }
+        #endregion
+
     }
 }

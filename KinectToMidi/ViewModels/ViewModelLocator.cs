@@ -32,30 +32,6 @@ namespace KinectToMidi.ViewModels
         }
 
         /// <summary>
-        /// Show warning message
-        /// </summary>
-        public static void ShowWarning(string text)
-        {
-            MainViewModel mainVM = ServiceLocator.Current.GetInstance<MainViewModel>();
-            if (mainVM != null)
-            {
-                if (!mainVM.WarningShowed)
-                    mainVM.WarningShowed = true;
-                mainVM.WarningText = text;
-            }
-        }
-
-        /// <summary>
-        /// Hide warning message
-        /// </summary>
-        public static void HideWarning()
-        {
-            MainViewModel mainVM = ServiceLocator.Current.GetInstance<MainViewModel>();
-            if (mainVM != null && mainVM.WarningShowed)
-                mainVM.WarningShowed = false;
-        }
-
-        /// <summary>
         /// Gets the Main ViewModel instance.
         /// </summary>
         public MainViewModel Main
