@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using KinectToMidi.Models;
+using KinectToMidi.Properties;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using System;
@@ -36,16 +37,7 @@ namespace KinectToMidi.ViewModels
 
             LoadCommand = new RelayCommand(() =>
             {
-                string fileName;
-                if (ViewModelLocator.UIService.ShowOpenFileDialog(".xml", "xml files (.xml)|*.xml", out fileName) == true)
-                {
-                    var blocksSet = SerializationTools.ReadObject(fileName);
-                    var blocksSetVM = new ConditionsMappingSetViewModel(blocksSet);
-                    if (blocksSetVM == null)
-                        ViewModelLocator.ShowWarning(Properties.Resources.WarningMessage_CannotLoadProject);
-                    else
-                        BlocksSetVM = blocksSetVM;
-                }
+                LoadProject();
             });
 
             ShowVideoWindow = new RelayCommand(() => ViewModelLocator.UIService.ShowVideoWindow());
@@ -262,6 +254,23 @@ namespace KinectToMidi.ViewModels
                 };
 
             m_sensorChooser.Start();
+        }
+
+        private void LoadProject()
+        {
+            string fileName;
+            if (ViewModelLocator.UIService.ShowOpenFileDialog(".xml", "xml files (.xml)|*.xml", out fileName) == true)
+            {
+                var blocksSet = SerializationTools.ReadObject(fileName);
+                if (blocksSet == null)
+                    ViewModelLocator.ShowWarning(Resources.WarningMessage_CannotLoadProject);
+                else
+                {
+                    ViewModelLocator.HideWarning();
+                    var blocksSetVM = new ConditionsMappingSetViewModel(blocksSet);
+                    BlocksSetVM = blocksSetVM;
+                }
+            }
         }
         #endregion private methods
     }
