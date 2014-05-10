@@ -16,32 +16,26 @@
     <UserControl.Resources>
         <kt:KinectSensorManager x:Key="sensorManager" KinectSensor="{Binding KinectSensorChooser.Kinect, ElementName=SensorChooserUI, Mode=OneWay}" SkeletonStreamEnabled="True" SkeletonTrackingMode="Default"/>
     </UserControl.Resources>
+	<i:Interaction.Behaviors>
+		<ei:DataStateBehavior Binding="{Binding WarningShowed}" Value="True" TrueState="ErrorShowed" FalseState="ErrorHidden"/>
+	</i:Interaction.Behaviors>
     <UserControl.DataContext>
         <Binding Mode="OneWay" Path="Main" Source="{StaticResource ViewModelLocatorDataSource}"/>
     </UserControl.DataContext>
-
-    <i:Interaction.Triggers>
-        <ei:DataTrigger Binding="{Binding WarningShowed}" Value="True">
-            <ei:GoToStateAction TargetObject="{Binding ElementName=userControl}" StateName="ErrorShowed"/>
-        </ei:DataTrigger>
-        <ei:DataTrigger Binding="{Binding WarningShowed}" Value="False">
-            <ei:GoToStateAction TargetObject="{Binding ElementName=userControl}" StateName="ErrorHidden"/>
-        </ei:DataTrigger>
-    </i:Interaction.Triggers>
 
     <Grid x:Name="grid1">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="ShowErrorStates">
                 <VisualState x:Name="ErrorShowed">
                     <Storyboard>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="grid">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="gridWarning">
                             <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="20"/>
                         </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="ErrorHidden">
                     <Storyboard>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="grid">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="gridWarning">
                             <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
@@ -108,13 +102,13 @@
                 </Grid>
             </Grid>
         </DockPanel>
-        <Grid x:Name="grid" VerticalAlignment="Bottom" Height="0">
+        <Grid x:Name="gridWarning" VerticalAlignment="Bottom" Height="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.25*"/>
                 <ColumnDefinition Width="0.3*"/>
                 <ColumnDefinition Width="0.25*"/>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="1" Background="#99662424" BorderThickness="1,1,1,0" CornerRadius="3">
+            <Border Grid.Column="1" Background="Red" BorderThickness="1,1,1,0" CornerRadius="3">
                 <TextBlock Text="{Binding WarningText}" TextAlignment="Center"/>
             </Border>
         </Grid>
