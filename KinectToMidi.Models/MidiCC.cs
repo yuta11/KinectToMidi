@@ -84,11 +84,6 @@ namespace KinectToMidi.Models
         [DataMember]
         public JointType Joint { get; set; }
 
-                /// <summary>
-        /// MIDI signal event type
-        /// </summary>
-        [DataMember]
-        public SignalEventTypes SignalEventType { get; set; }
         #endregion preperties
 
         #region public methods
@@ -98,9 +93,25 @@ namespace KinectToMidi.Models
         public override void Send(Skeleton skeleton)
         {
             var sp = skeleton.Joints[Joint].Position;
+            byte min, max;
 
-            Min = m_expressionMin.GetValue(sp.X, sp.Y, sp.Z, MinString, Min);
-            Max = m_expressionMax.GetValue(sp.X, sp.Y, sp.Z, MaxString, Max);
+            if (byte.TryParse(MinString, out min))
+                Min = min;
+            else
+            {
+                if (m_expressionMin != null)
+                    m_expressionMin.InitDynamicExpression(m_MinString);
+                Min = m_expressionMin.GetValue(sp.X, sp.Y, sp.Z, MinString, Min);
+            }
+
+            if (byte.TryParse(MaxString, out max))
+                Max = max;
+            else
+            {
+                if (m_expressionMax != null)
+                    m_expressionMax.InitDynamicExpression(MaxString);
+                Max = m_expressionMax.GetValue(sp.X, sp.Y, sp.Z, MaxString, Max);
+            }
 
             MidiSettings.MidiSettingsInstance.SendCC(CC, Min, Max, Channel);
         }

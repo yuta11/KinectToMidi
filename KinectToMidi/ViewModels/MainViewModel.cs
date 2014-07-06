@@ -95,6 +95,19 @@ namespace KinectToMidi.ViewModels
             }
         }
 
+        private bool m_seatMode;
+        public bool SeatMode
+        {
+            get { return m_seatMode; }
+            set
+            {
+                m_seatMode = value;
+                RaisePropertyChanged("SeatMode");
+                if(m_sensorChooser != null && m_sensorChooser.Kinect != null)
+                    m_sensorChooser.Kinect.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
+            }
+        }
+
         /// <summary>
         /// Sensor chooser is used to automate finding and updating of Kinect sensor
         /// </summary>
@@ -181,6 +194,7 @@ namespace KinectToMidi.ViewModels
             get;
             private set;
         }
+
         #endregion relay commands
 
         #region private methods
@@ -231,7 +245,8 @@ namespace KinectToMidi.ViewModels
                         e.NewSensor.ColorStream.Enable();
                         e.NewSensor.DepthStream.Enable();
                         e.NewSensor.SkeletonStream.Enable();
-                        //e.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated; //TEMP
+                        if(m_seatMode)
+                            e.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated; //TEMP
 
                         //that fires everytime when skeleton coordinates are ready
                         e.NewSensor.AllFramesReady += (s, args) =>

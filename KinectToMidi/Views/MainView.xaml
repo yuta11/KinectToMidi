@@ -49,7 +49,7 @@
                     <MenuItem Header="{x:Static properties:Resources.Load}" Command="{Binding LoadCommand}"/>
                     <MenuItem Header="{x:Static properties:Resources.Save}" Command="{Binding SaveCommand}"/>
                 </MenuItem>
-                <MenuItem Header="_Midi" >
+                <MenuItem Header="_Settings" >
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{x:Static properties:Resources.MidiSettingsColon}" VerticalContentAlignment="Center" />
                         <ComboBox Width="200" ItemsSource="{Binding MidiSettingsVM.OutDeviceNames}" SelectedItem="{Binding MidiSettingsVM.CurrentOutDeviceName}"/>
@@ -57,6 +57,7 @@
                             <Image Height="16" Source="/KinectToMidi;component/Images/update.ico" Stretch="Fill" Width="16"/>
                         </Button>
                     </StackPanel>
+                    <CheckBox Content="_Seat mode" IsChecked="{Binding SeatMode}"></CheckBox>
                 </MenuItem>
                 <MenuItem Header="{x:Static properties:Resources.View}">
                     <MenuItem Header="{x:Static properties:Resources.ShowKinectWindowTitle}" Command="{Binding ShowVideoWindow, Mode=OneWay}"/>
