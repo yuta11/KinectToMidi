@@ -23,9 +23,7 @@
 <p style="margin:0cm 0cm 8pt">&nbsp;</p>
 <p style="margin:0cm 0cm 8pt"><span lang="EN-US" style="font-size:14pt; line-height:107%">Midi</span></p>
 <p style="margin:0cm 0cm 8pt"><span lang="EN-US">If all conditions in the block were met, spicified MIDI signals are sent. Each of these signals can be one of two types:</span></p>
-<p style="margin:0cm 0cm 8pt">&nbsp;</p>
-<p style="margin:0cm 0cm 0pt 36pt; text-indent:-18pt"><span lang="EN-US" style="font-family:symbol">·<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang="EN-US"><strong>CC</strong> (Control Change)</span></p>
+<p style="margin:0cm 0cm 0pt 36pt; text-indent:-18pt"><span lang="EN-US"><strong>CC</strong> (Control Change)</span></p>
 <p style="margin:0cm 0cm 0pt 36pt; text-indent:-18pt"><img title="image" border="0" alt="image" src="https://user-images.githubusercontent.com/7378481/107875996-51d57d80-6ed4-11eb-937a-457e5d80bc53.jpg" width="529" height="229" style="border-left-width:0px; border-right-width:0px; border-bottom-width:0px; padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-top-width:0px"></p>
 <p style="margin:0cm 0cm 8pt 36pt; text-indent:-18pt"><span lang="EN-US" style="font-family:symbol">·<span style="font:7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><span lang="EN-US"><strong>MIDI Note</strong></span></p>
@@ -53,8 +51,9 @@
 <p style="margin:0cm 0cm 8pt">&nbsp;</p>
 <p style="margin:0cm 0cm 8pt"><span lang="EN-US" style="font-size:14pt; line-height:107%">Prerequisites</span></p>
 <ul>
-<li><span lang="EN-US" style="text-indent:-18pt">Windows 7, Windows 8, Windows 8.1</span>
+<li><span lang="EN-US" style="text-indent:-18pt">Windows 7, Windows 8, Windows 10</span>
 </li><li><span style="background-color:transparent">Kinect for Windows</span> </li><li><span style="background-color:transparent">Kinect for Windows Runtime v1.8 </span>
 </li><li><span style="background-color:transparent"></span><span style="background-color:transparent">.NET Framework 4.5</span>
+</li><li><span style="background-color:transparent"></span><span style="background-color:transparent">Kinect v1 connected</span>
 </li></ul>
 </div><div class="ClearBoth">
