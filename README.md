@@ -56,4 +56,7 @@
 </li><li><span style="background-color:transparent"></span><span style="background-color:transparent">.NET Framework 4.5</span>
 </li><li><span style="background-color:transparent"></span><span style="background-color:transparent">Kinect v1 connected</span>
 </li></ul>
+<p style="margin:0cm 0cm 8pt">&nbsp;</p>
+<p style="margin:0cm 0cm 8pt"><span lang="EN-US" style="font-size:14pt; line-height:107%">P.S.</span></p>
+<p style="margin:0cm 0cm 8pt"><span lang="EN-US">I created this app for my own use years ago, but fill free to contact me about new features or issues.</span></p>
 </div><div class="ClearBoth">
