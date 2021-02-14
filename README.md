@@ -1,5 +1,6 @@
 # KinectToMidi
 In general, this app receives Kinect data as input and sends MIDI signals as output. With using Kinect to Midi, you can build some collection of conditions and send MIDI signals if skeleton points’ coordinates correspond all these specified conditions. 
+<img src="https://user-images.githubusercontent.com/7378481/107875994-513ce700-6ed4-11eb-93b5-2426d1f6c469.jpg" width="90%">
 Conditions
 Within a single block, you can add multiple conditions. To do that you have to select appropriate condition and press clip_image002 button.
 Each condition can be one of two types: 
@@ -7,12 +8,15 @@ Each condition can be one of two types:
 ·         Skeleton point to skeleton point
 All coordinates are in meters.
 With using skeleton point to coordinate condition type you can specify some cuboid and joint (skeleton point) whose coordinates are compared with the cuboid. So the X, Y, Z values are coordinates of the left, bottom, nearest to Kinect cuboid corner and Height, Width and Length values are sizes on Y, X and Z axis correspondingly. For example if you add condition where Joint=HandRight, X=0.3, Y=0.5, Z=0, Height=2, Width=2 and Length=2, than specified signal will be sent only when you raise your hand up and right (if you located in the center front of the Kinect). 
+<img src="https://user-images.githubusercontent.com/7378481/107875998-526e1400-6ed4-11eb-8946-b9c2e02a6c01.jpg" width="90%"></img>
 With skeleton point to skeleton point condition type, it is possible to compare two skeleton joints with some specified radius and shift. The X, Y and Z values are the shift of second joint’s coordinates and Radius value is a radius of sphere around this shifted point. With using condition where First joint=HandRight, Second joint=Head, X=Y=Z=0 and Radius=0.2 specified signal will be sent when you bring your right hand to the head. 
-
+<img src="https://user-images.githubusercontent.com/7378481/107875997-526e1400-6ed4-11eb-9811-f704ef715d86.jpg" width="90%"></img>
 Midi
 If all conditions in the block were met, spicified MIDI signals are sent. Each of these signals can be one of two types:
 ·         CC (Control Change)
+<img src="https://user-images.githubusercontent.com/7378481/107875996-51d57d80-6ed4-11eb-937a-457e5d80bc53.jpg" width="90%"></img>
 MIDI Note
+<img src="https://user-images.githubusercontent.com/7378481/107875995-51d57d80-6ed4-11eb-8525-f1cd72edb984.jpg" width="90%"></img>
 By specifying event type, you can define when the signal should be sent:
 
 ·         In – the signal will be sent right after all conditions in the block are met.
